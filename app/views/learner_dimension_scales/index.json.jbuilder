@@ -1,0 +1,1 @@
+json.array! @learner_dimension_scales, partial: 'learner_dimension_scales/learner_dimension_scale', as: :learner_dimension_scale

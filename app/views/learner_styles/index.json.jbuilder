@@ -1,0 +1,1 @@
+json.array! @learner_styles, partial: 'learner_styles/learner_style', as: :learner_style

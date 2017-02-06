@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="col-xs-4"></div>
+	<div class="col-xs-4">
+		<%= simple_form_for(@learner_dimension_scale) do |f| %>
+		  <%= f.error_notification %>
+
+		  <div class="form-inputs">
+		    <%= f.input :name %>
+		    <%= f.association :learner_style %>
+		  </div>
+
+		  <div class="form-actions">
+		    <%= f.button :submit,'Save', class:'btn btn-primary' %>
+		    <%= link_to 'Back', learner_dimension_scales_path,class: 'btn btn-primary' %>
+
+		  </div>
+		
+	<% end %>
+	</div>
+	<div class="col-xs-4"></div>
+</div>

@@ -1,0 +1,2 @@
+module LearnerDimensionScalesHelper
+end

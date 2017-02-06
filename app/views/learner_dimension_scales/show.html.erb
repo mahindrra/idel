@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @learner_dimension_scale.name %>
+</p>
+
+<p>
+  <strong>Learner style:</strong>
+  <%= @learner_dimension_scale.learner_style.name %>
+</p>
+
+<%= link_to 'Edit', edit_learner_dimension_scale_path(@learner_dimension_scale) %> |
+<%= link_to 'Back', learner_dimension_scales_path %>

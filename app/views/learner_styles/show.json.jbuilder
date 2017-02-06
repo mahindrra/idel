@@ -1,0 +1,1 @@
+json.partial! "learner_styles/learner_style", learner_style: @learner_style

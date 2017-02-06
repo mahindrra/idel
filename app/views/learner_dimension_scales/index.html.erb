@@ -1,0 +1,27 @@
+
+<h1>Learner Dimension Scales</h1>
+<%= link_to 'New Learner Dimension Scale', new_learner_dimension_scale_path, class:'btn btn-primary  pull-right' %>
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Learner style</th>
+      <th> Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @learner_dimension_scales.each do |learner_dimension_scale| %>
+    <tr>
+      <td><%= learner_dimension_scale.name %></td>
+      <td><%= learner_dimension_scale.learner_style.name %></td>
+      <td><%= link_to 'Show', learner_dimension_scale %>
+      <%= link_to 'Edit', edit_learner_dimension_scale_path(learner_dimension_scale) %>
+      <%= link_to 'Destroy', learner_dimension_scale, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+

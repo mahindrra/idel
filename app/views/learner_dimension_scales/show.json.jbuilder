@@ -1,0 +1,1 @@
+json.partial! "learner_dimension_scales/learner_dimension_scale", learner_dimension_scale: @learner_dimension_scale
