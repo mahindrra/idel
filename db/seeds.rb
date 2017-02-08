@@ -46,3 +46,68 @@ if LearnerDimensionScale.first.blank?
 end	
 
 
+### questions
+if Question.first.blank?
+	questions_array = [
+		{ 
+			name:'When I think about what I did yesterday, I am most likely to get',
+			answer_a:'a picture.',
+			answer_b:'words.', 
+		},
+		{
+		 	name: 'I prefer to get new information in ?', 
+	 		answer_a:"pictures, diagrams, graphs, or maps.",
+			answer_b:"written directions or verbal information."
+		},
+		{ 
+			name:"In a book with lots of pictures and charts, I am likely to",
+			answer_a:'look over the pictures and charts carefully.',
+			answer_b:'focus on the written text.'
+		},
+		{ 
+			name:'I like teachers', 
+			answer_a:'who put a lot of diagrams on the board.',
+			answer_b:'who spend a lot of time explaining.',
+		},	 
+		{
+			name: "I remember best", 
+			answer_a:'what I see.',
+			answer_b:'what I hear.'
+		},	 
+		{
+			name: "When I get directions to a new place, I prefer", 
+	 		answer_a:'a map.', 
+			answer_b:'written instructions.'
+		},
+		{ 
+			name:'When I see a diagram or sketch in class, I am most likely to remember', 
+			answer_a:'the picture.', 
+	    	answer_b:'what the instructor said about it.'
+		},     
+		{   
+			name:'When someone is showing me data, I prefer', 
+			answer_a:'charts or graphs.',
+			answer_b:'text summarizing the results.'
+		},
+		{
+			name: "When I meet people at a party, I am more likely to remember",
+			answer_a:'what they looked like.', 
+			answer_b:'what they said about themselves.'
+		},
+		{
+			name:"For entertainment, I would rather", 
+			answer_a:'watch television.', 
+			answer_b:'read a book.'
+		}, 
+		{  
+			name: "I tend to picture places I have been", 
+			answer_a:'easily and fairly accurately.',
+			answer_b:'with difficulty and without much detail.' 
+		}
+	]
+
+	questions_array.each do |hash|
+		q = Question.find_or_create_by(name:hash[:name],answer_a:hash[:answer_a],answer_b:hash[:answer_b])
+		q.save
+	end
+end	

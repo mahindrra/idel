@@ -1,8 +1,9 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Learner Styles</h1>
+<h4>Learner Styles</h4>
 
-<table>
+<%= link_to 'New Learner Style', new_learner_style_path, class:'btn btn-primary pull-right'%>
+
+<table class="table table-bordered table-striped">
   <thead>
     <tr>
       <th>Name</th>
@@ -21,7 +22,3 @@
     <% end %>
   </tbody>
 </table>
-
-<br>
-
-<%= link_to 'New Learner Style', new_learner_style_path %>

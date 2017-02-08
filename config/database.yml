@@ -80,8 +80,8 @@ test:
 #   production:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
-production:
-  <<: *default
-  database: idel_production
-  username: idel
-  password: <%= ENV['IDEL_DATABASE_PASSWORD'] %>
+#production:
+  # <<: *default
+  # database: idel_production
+  # username: idel
+  # password: <%= ENV['IDEL_DATABASE_PASSWORD'] %>

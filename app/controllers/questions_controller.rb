@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   
-  before_action :is_admin?
+  #before_action :is_admin?
   before_action :set_question, only: [:show, :edit, :update, :destroy]
 
   # GET /questions
