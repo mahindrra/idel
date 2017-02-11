@@ -7,11 +7,13 @@
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
-      <% if current_user.role.name=='admin'%>
-      <li class="nav-item"><%= link_to 'Learner Styles', learner_styles_path, class: 'nav-link' %></li>
-      
-      <li class="nav-item"><%= link_to 'LDS', learner_dimension_scales_path, class: 'nav-link' %></li>
-      <li class="nav-item"><%= link_to 'Questions', questions_path, class: 'nav-link' %></li>
+        <% current_user_role = current_user.role.name%>
+      <% if current_user_role=='admin'%>
+        <%=render 'shared/admin_links'%>
+      <%elsif current_user_role=='teacher'%>
+        <%=render 'shared/teacher_links'%>
+      <%else%>
+        <%=render 'shared/student_links'%>
       <%end%>
       <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
       <% else %>

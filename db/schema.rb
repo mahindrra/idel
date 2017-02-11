@@ -10,10 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211062522) do
+ActiveRecord::Schema.define(version: 20170211110626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "courses", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "duration"
+    t.integer  "audience"
+    t.text     "course_objective"
+    t.integer  "no_of_objective"
+    t.integer  "session"
+    t.integer  "skill_based"
+    t.integer  "knowledge_based"
+    t.integer  "user_id"
+    t.integer  "learner_style_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.index ["learner_style_id"], name: "index_courses_on_learner_style_id", using: :btree
+    t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
+  end
 
   create_table "learner_dimension_scales", force: :cascade do |t|
     t.string   "name"
@@ -73,6 +90,8 @@ ActiveRecord::Schema.define(version: 20170211062522) do
     t.index ["role_id"], name: "index_users_on_role_id", using: :btree
   end
 
+  add_foreign_key "courses", "learner_styles"
+  add_foreign_key "courses", "users"
   add_foreign_key "learner_dimension_scales", "learner_styles"
   add_foreign_key "porfiles", "learner_dimension_scales"
   add_foreign_key "porfiles", "users"

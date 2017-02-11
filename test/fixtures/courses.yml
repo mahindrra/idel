@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  duration: 1
+  audience: 1
+  course_objective: MyText
+  no_of_objective: 1
+  session: 1
+  skill_based: 1
+  knowledge_based: 1
+  user: one
+  learner_style: one
+
+two:
+  name: MyString
+  duration: 1
+  audience: 1
+  course_objective: MyText
+  no_of_objective: 1
+  session: 1
+  skill_based: 1
+  knowledge_based: 1
+  user: two
+  learner_style: two

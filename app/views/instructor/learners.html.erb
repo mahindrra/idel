@@ -1,0 +1,24 @@
+<h4>Learner List</h4>
+
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Learner Dimension Scale</th>
+      <th>Learning Style</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @profiles.each_with_index do |profile,index| %>
+      <tr>
+        <td><%= "#{profile.first_name} #{profile.last_name}" %></td>
+        <%if profile.learner_dimension_scale.present?%>
+          <td><%= "#{profile.learner_dimension_scale.name}" %></td>
+          <td><%= "#{profile.learner_dimension_scale.learner_style.name}" %></td>
+        <%end%>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

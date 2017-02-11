@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
     if resource.role.name == 'admin'
       dashboard_admin_home_path
     elsif resource.role.name =='teacher'
-    	dashboard_teacher_home_path
+    	instructor_dashboard_path
     else
     	dashboard_student_home_path
     end

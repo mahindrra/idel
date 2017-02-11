@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+  resources :courses
+  get 'instructor/learners'
+  get 'instructor/dashboard'
+
+  get 'instructor/create_course'
+
+  get 'instructor/new_course'
+  get 'instructor/guide'
+
+  get 'instructor/list_course'
+
+  get 'instructor/update_course'
+
   get 'admin/users'
 
   get 'admin/courses'

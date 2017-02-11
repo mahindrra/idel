@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @course.name %>
+</p>
+
+<p>
+  <strong>Duration:</strong>
+  <%= @course.duration %>
+</p>
+
+<p>
+  <strong>Audience:</strong>
+  <%= @course.audience %>
+</p>
+
+<p>
+  <strong>Course objective:</strong>
+  <%= @course.course_objective %>
+</p>
+
+<p>
+  <strong>No of objective:</strong>
+  <%= @course.no_of_objective %>
+</p>
+
+<p>
+  <strong>Session:</strong>
+  <%= @course.session %>
+</p>
+
+<p>
+  <strong>Skill based:</strong>
+  <%= @course.skill_based %>
+</p>
+
+<p>
+  <strong>Knowledge based:</strong>
+  <%= @course.knowledge_based %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @course.user %>
+</p>
+
+<p>
+  <strong>Learner style:</strong>
+  <%= @course.learner_style %>
+</p>
+
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Back', courses_path %>
