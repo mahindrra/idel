@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170205111844) do
+ActiveRecord::Schema.define(version: 20170211062522) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20170205111844) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "porfiles", force: :cascade do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.integer  "user_id"
+    t.integer  "learner_dimension_scale_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["learner_dimension_scale_id"], name: "index_porfiles_on_learner_dimension_scale_id", using: :btree
+    t.index ["user_id"], name: "index_porfiles_on_user_id", using: :btree
   end
 
   create_table "questions", force: :cascade do |t|
@@ -63,5 +74,7 @@ ActiveRecord::Schema.define(version: 20170205111844) do
   end
 
   add_foreign_key "learner_dimension_scales", "learner_styles"
+  add_foreign_key "porfiles", "learner_dimension_scales"
+  add_foreign_key "porfiles", "users"
   add_foreign_key "users", "roles"
 end

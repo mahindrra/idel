@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  first_name: MyString
+  last_name: MyString
+  user: one
+  learner_dimension_scale: one
+
+two:
+  first_name: MyString
+  last_name: MyString
+  user: two
+  learner_dimension_scale: two
