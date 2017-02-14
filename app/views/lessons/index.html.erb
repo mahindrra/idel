@@ -1,31 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Lessons</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Objective Name</th>
-      <th>Content Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @lessons.each do |lesson| %>
-      <tr>
-        <td><%= lesson.name %></td>
-        <td><%= lesson.objective.name %></td>
-        <td><%= lesson.content_file_name %></td>
-        <td><%= link_to 'Show', objective_lesson_path(objective_id:lesson.objective_id,id:lesson.id) %></td>
-        <td><%= link_to 'Edit', edit_objective_lesson_path(objective_id:lesson.objective_id,id:lesson.id) %></td>
-        <td><%#= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%if @lessons.present?%>
+<br>
+<h3>Lessons for course: <%=@lessons.first.objective.course.name%></h3><br>
+<%= link_to 'New Lesson', new_objective_lesson_path(objective_id:params[:objective_id]),class:'btn btn-primary' %>
 
 <br>
-
-<%#= link_to 'New Lesson', new_lesson_path %>
+<hr>
+<div class="row">
+  <% @lessons.each do |lesson| %>
+  <div class="col-sm-6">
+    <div class="card">
+      <div class="card-block">
+      <h3 class="card-title"><%=lesson.name%></h3>
+        <p class="card-text"><%=lesson.objective.name%></p>
+        <div class="card-image">
+          <%= video_tag "#{lesson.content.url}", :size => "320x240", :controls => true %>
+        </div>
+        
+        <%= link_to 'Edit Lesson', edit_objective_lesson_path(objective_id:lesson.objective_id,id:lesson.id),class:'btn btn-primary' %>
+      </div>
+    </div>
+  </div>
+  <%end%>
+</div>
+<%else%>
+<div class="alert alert-danger" style="margin-top: 20px;">
+No courses added for this objective
+<%= link_to "objectives", objectives_path %>
+</div>
+<%end%>
