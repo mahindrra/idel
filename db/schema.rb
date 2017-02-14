@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170211110626) do
+ActiveRecord::Schema.define(version: 20170214100111) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,8 +26,12 @@ ActiveRecord::Schema.define(version: 20170211110626) do
     t.integer  "knowledge_based"
     t.integer  "user_id"
     t.integer  "learner_style_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.integer  "file_file_size"
+    t.datetime "file_updated_at"
     t.index ["learner_style_id"], name: "index_courses_on_learner_style_id", using: :btree
     t.index ["user_id"], name: "index_courses_on_user_id", using: :btree
   end
@@ -44,6 +48,26 @@ ActiveRecord::Schema.define(version: 20170211110626) do
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "lessons", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "objective_id"
+    t.string   "content_file_name"
+    t.string   "content_content_type"
+    t.integer  "content_file_size"
+    t.datetime "content_updated_at"
+    t.datetime "created_at",           null: false
+    t.datetime "updated_at",           null: false
+    t.index ["objective_id"], name: "index_lessons_on_objective_id", using: :btree
+  end
+
+  create_table "objectives", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "course_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["course_id"], name: "index_objectives_on_course_id", using: :btree
   end
 
   create_table "porfiles", force: :cascade do |t|
@@ -93,6 +117,8 @@ ActiveRecord::Schema.define(version: 20170211110626) do
   add_foreign_key "courses", "learner_styles"
   add_foreign_key "courses", "users"
   add_foreign_key "learner_dimension_scales", "learner_styles"
+  add_foreign_key "lessons", "objectives"
+  add_foreign_key "objectives", "courses"
   add_foreign_key "porfiles", "learner_dimension_scales"
   add_foreign_key "porfiles", "users"
   add_foreign_key "users", "roles"

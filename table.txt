@@ -1,0 +1,24 @@
+use following command
+rails generate scaffold objective name:string course:references
+
+rake db:migrate for database modifications
+
+
+Objective table
+
+ID refer as a primary key 
+
+ID name course_id created_at updated_at --> 5 columns will be created.
+
+
+
+Table for content and course. Lesson Table
+
+it will have three columns
+
+1. Course_id
+2. Objective_id
+2. Lesson_id
+3.Content_id
+4. 
+

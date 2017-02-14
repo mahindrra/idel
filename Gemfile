@@ -55,4 +55,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'bootstrap'
 gem 'simple_form'
 gem 'devise'
+### to upload file on server
+gem "paperclip", "~> 5.0.0"
+gem "paperclip-ffmpeg"
 

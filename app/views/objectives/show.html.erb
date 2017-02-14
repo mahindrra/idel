@@ -1,0 +1,14 @@
+
+
+<p>
+  <strong>Name:</strong>
+  <%= @objective.name %>
+</p>
+
+<p>
+  <strong>Course:</strong>
+  <%= @objective.course.name %>
+</p>
+
+<%= link_to 'Edit', edit_objective_path(@objective) %> |
+<%= link_to 'Back', objectives_path %>

@@ -1,0 +1,17 @@
+<div class="container">
+<%= simple_form_for(@objective) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name, label:'Objective Name' %>
+    <%=f.hidden_field :course_id,value:@current_course.id%>
+    <label>Course Name:</label> <%= @current_course.name %><br>
+  </div>
+
+  <div class="form-actions">
+
+  <%= link_to 'Back', courses_path, class:'btn btn-primary' %>
+    <%= f.button :submit,'Save' %>
+  </div>
+<% end %>
+</div>

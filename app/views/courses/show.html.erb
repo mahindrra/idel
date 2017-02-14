@@ -1,54 +1,67 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
+<div class="container"> 
 
-<p>
-  <strong>Duration:</strong>
-  <%= @course.duration %>
-</p>
+  <p>
+    <strong>Name:</strong>
+    <%= @course.name %>
+  </p>
 
-<p>
-  <strong>Audience:</strong>
-  <%= @course.audience %>
-</p>
+  <p>
+    <strong>Duration:</strong>
+    <%= @course.duration %>
+  </p>
 
-<p>
-  <strong>Course objective:</strong>
-  <%= @course.course_objective %>
-</p>
+  <p>
+    <strong>Audience:</strong>
+    <%= @course.audience %>
+  </p>
 
-<p>
-  <strong>No of objective:</strong>
-  <%= @course.no_of_objective %>
-</p>
+  <p>
+    <strong>Course objective:</strong>
+    <%= @course.course_objective %>
+  </p>
 
-<p>
-  <strong>Session:</strong>
-  <%= @course.session %>
-</p>
+  <p>
+    <strong>No of objective:</strong>
+    <%= @course.no_of_objective %>
+  </p>
 
-<p>
-  <strong>Skill based:</strong>
-  <%= @course.skill_based %>
-</p>
+  <p>
+    <strong>Session:</strong>
+    <%= @course.session %>
+  </p>
 
-<p>
-  <strong>Knowledge based:</strong>
-  <%= @course.knowledge_based %>
-</p>
+  <p>
+    <strong>Skill based:</strong>
+    <%= @course.skill_based %>
+  </p>
 
-<p>
-  <strong>User:</strong>
-  <%= @course.user %>
-</p>
+  <p>
+    <strong>Knowledge based:</strong>
+    <%= @course.knowledge_based %>
+  </p>
 
-<p>
-  <strong>Learner style:</strong>
-  <%= @course.learner_style %>
-</p>
+  <p>
+    <strong>User:</strong>
+    <%= @course.user.get_full_name %>
+  </p>
 
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+  <p>
+    <strong>Learner style:</strong>
+    <%= @course.learner_style.name %>
+  </p>
+  <p>
+    <strong>Course Content:</strong>
+    <%= @course.file_file_name %>
+  </p>
+
+  <p>
+    <strong>Course :</strong>
+    <%= video_tag "#{@course.file.url}", :size => "320x240", :controls => true %>
+
+    <%#= @course.file_file_name: %>
+  </p>
+
+  <%= link_to 'Edit', edit_course_path(@course) %> |
+  <%= link_to 'Back', courses_path %>
+</div>

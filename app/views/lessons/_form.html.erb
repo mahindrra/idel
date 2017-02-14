@@ -1,0 +1,22 @@
+<%= simple_form_for [@objective,@lesson] ,html: {multipart: true} do |f| %>
+  <%= f.error_notification %>
+<div class="form-inputs">
+
+    <label>Course Name: <%=@objective.course.name%></label>
+</div>
+<div class="form-inputs">
+<%= f.hidden_field :objective_id, value:@objective.id%>
+    <label>Objective Name: <%= @objective.name%></label>
+</div>
+  <div class="form-inputs">
+    <%= f.input :name,label:'Lesson Name' %>
+    <%= f.input :content ,as: :file %>
+  </div>
+
+  <div class="form-actions">
+
+	<%= link_to 'Back', objectives_path, class:'btn primary-btm' %>
+
+    <%= f.button :submit %>
+  </div>
+<% end %>

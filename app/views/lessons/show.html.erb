@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @lesson.name %>
+</p>
+
+<p>
+  <strong>Objective:</strong>
+  <%= @lesson.objective %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @lesson.content %>
+</p>
+
+<%= link_to 'Edit',edit_objective_lesson_path(objective_id:@lesson.objective_id,id:@lesson.id) %> |
+<%= link_to 'Back', objective_lessons_path(objective_id:@lesson.objective_id) %>

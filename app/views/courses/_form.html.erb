@@ -97,16 +97,21 @@
   <div class="row">
   <div class="col-sm-6"> 
       <div class="form-group row">
-        <%= f.label :learner_style,'Learner', class:"col-sm-2 col-form-label"%>
+        <%= f.label :learner_style_id,'Learner', class:"col-sm-2 col-form-label"%>
         <div class="col-sm-10">
-          <%=f.select :learner_style, LearnerStyle.all.collect { |ls| [ls.name, ls.id] },{},class:"form-control"%>
+          <%=f.select :learner_style_id, LearnerStyle.all.collect { |ls| [ls.name, ls.id] },{},class:"form-control"%>
         </div>
       </div>
     </div>
     <div class="col-sm-6">
-    <%=f.submit 'Save',class:'btn btn-primary'%> 
+      <%#=f.file_field :file, class:"form-control"%>
+      <%=f.hidden_field :user_id,value:current_user.id%>
+
+      <%=link_to 'Back',courses_path,class:'btn btn-primary'%> 
+      <%=f.submit 'Save',class:'btn btn-primary'%> 
     </div>
-   </div> 
+   </div>
+    
   <%end%>
 </div>
 <script type="text/javascript">

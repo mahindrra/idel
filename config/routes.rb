@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  
+  resources :objectives do
+    resources :lessons
+  end  
   resources :courses
   get 'instructor/learners'
   get 'instructor/dashboard'
