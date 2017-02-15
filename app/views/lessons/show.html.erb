@@ -1,19 +1,18 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @lesson.name %>
-</p>
-
-<p>
-  <strong>Objective:</strong>
-  <%= @lesson.objective %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= @lesson.content %>
-</p>
-
+<div class="card" style="margin-top: 20px;">
+  <div class="card-block">
+    <h4 class="card-title">Lesson Name:<%= @lesson.name %></h4>
+    <h6 class="card-subtitle mb-2 text-muted">Objective Name:<%= @lesson.objective.name %></h6>
+    <p class="card-text">
+    <%= video_tag(@lesson.content.url, controls: true, autobuffer: true,
+	width:'500',height:'300')%>
+    </p>
+    <%if current_user.role.name!='student'%>
 <%= link_to 'Edit',edit_objective_lesson_path(objective_id:@lesson.objective_id,id:@lesson.id) %> |
 <%= link_to 'Back', objective_lessons_path(objective_id:@lesson.objective_id) %>
+<%else%>
+	<%= link_to 'Back', root_path,class:'btn btn-primary' %>
+	<%=link_to 'Start Quiz','#',class:'btn btn-primary'%>
+<%end%>
+  </div>
+</div>

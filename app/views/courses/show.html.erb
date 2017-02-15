@@ -57,10 +57,28 @@
 
   <p>
     <strong>Course :</strong>
-    <%= video_tag "#{@course.file.url}", :size => "320x240", :controls => true %>
+    <%#= video_tag "#{@course.file.url}", :size => "320x240", :controls => true %>
 
     <%#= @course.file_file_name: %>
   </p>
+  <%# show objectives %>
+  <%if @course.objectives.present?%>
+    <% @course.objectives.each do |objective|%>
+    <p>
+    <strong>Objective Name:</strong>
+      <%=objective.name%>
+    </p>
+    <%if objective.lessons.present?%>
+      <%objective.lessons.each_with_index do |lesson,index|%>
+        <p>
+          <strong><%=index+1%> Lesson Name:</strong>
+          <%=lesson.name%> <span> <%=link_to 'Start',objective_lesson_path(objective_id:objective.id,id:lesson.id) %></span>
+        </p>
+      <%end%>
+    <%end%>
+   <%end%> 
+  <%end%>
+  
  <%if current_user.role.name!='student'%>
     <%= link_to 'Edit', edit_course_path(@course) %> |
     <%= link_to 'Back', courses_path %>
