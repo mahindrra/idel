@@ -61,7 +61,10 @@
 
     <%#= @course.file_file_name: %>
   </p>
-
-  <%= link_to 'Edit', edit_course_path(@course) %> |
-  <%= link_to 'Back', courses_path %>
+ <%if current_user.role.name!='student'%>
+    <%= link_to 'Edit', edit_course_path(@course) %> |
+    <%= link_to 'Back', courses_path %>
+  <%else%>
+    <%= link_to 'Back', root_path %>
+  <%end%>
 </div>

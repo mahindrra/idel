@@ -36,7 +36,19 @@
 		
 	<%else%>
 	<div class="col-lg-10">
-		Course content data goes here
+		<div class="row">
+			<% @courses.each do |course| %>
+			<div class="col-sm-4">
+				<div class="card">
+					<div class="card-block">
+						<h3 class="card-title"><%=course.name%></h3>
+						<p class="card-text"><%=course.course_objective%></p>
+						<%= link_to 'Show', course ,class:'btn btn-primary btn-sm'%>
+					</div>
+				</div>
+			</div>
+			<%end%>
+		</div>
 	</div>	
 	<%end%>
 	<div class="col-lg-1"></div>

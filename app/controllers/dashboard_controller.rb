@@ -1,4 +1,16 @@
 class DashboardController < ApplicationController
+  
+  def index
+    if current_user.role.name == 'admin'
+      root_path = dashboard_admin_home_path
+    elsif current_user.role.name =='teacher'
+      root_path = instructor_dashboard_path
+    else
+      root_path = dashboard_student_home_path
+    end
+    redirect_to root_path
+  end
+
 	def admin_home
 	end
 
@@ -15,6 +27,7 @@ class DashboardController < ApplicationController
   		if profile.learner_dimension_scale_id.present?
   			### show courses here
   			@show_questions_flag = false
+        @courses = Course.where(learner_style_id:profile.learner_dimension_scale.learner_style.id)
   		else
   			@questions = Question.all
   		end	

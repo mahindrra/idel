@@ -3,7 +3,7 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   
-  <a class="navbar-brand" href="#">IDEL</a>
+  <a class="navbar-brand" href="/">IDEL</a>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <% if user_signed_in? %>
@@ -15,7 +15,14 @@
       <%else%>
         <%=render 'shared/student_links'%>
       <%end%>
-      <li class="nav-item"><%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: 'nav-link' %></li>
+      <li class="dropdown nav-item ">
+          <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Welcome! <%=print_user_name_with_style(current_user)%><span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li>&nbsp;&nbsp;&nbsp;<%= link_to 'Sign out', destroy_user_session_path, method: :delete%></li>
+            
+          </ul>
+        </li>
+      
       <% else %>
       <li class="nav-item"><%= link_to 'Sign Up',new_user_registration_path, class: 'nav-link' %></li><li class="nav-item "><%= link_to 'Sign in',new_user_session_path, class: 'nav-link' %></li>
       <% end %>
