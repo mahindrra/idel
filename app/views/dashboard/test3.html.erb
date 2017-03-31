@@ -1,0 +1,30 @@
+<div class="row" style="margin-top: 30px;">
+	<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+		<h4>Learning Assessment Strategy Test (LAST)</h4>
+		<hr>
+		<strong>DIRECTIONS:</strong><br>
+		<code>
+		Please choose only one answer for each question. If both “a” and “b” seem to apply to you, choose the one that applies more frequently.
+		</code>
+		<hr>
+			<%= simple_form_for(current_user,url: dashboard_last_result_path,method:'POST') do |f| %>
+			  <%= f.error_notification %>
+			   <ol>
+				  <% @questions.each_with_index do |question,index| %>
+				   <li><%=question.name%><br>
+	                    <input type="radio" name="user[test][q<%=index+1%>]" value="a">
+	                    &nbsp; <b>(a)</b> &nbsp;<%=question.answer_a%> <br>
+	                    <input type="radio"  name="user[test][q<%=index+1%>]" value="b">
+	                    &nbsp; <b>(b)</b>&nbsp;<%=question.answer_b%>
+	                    <p></p>
+	                </li>
+				  <%end%>
+				</ol>  
+			  <div class="form-actions">
+			  	<%= f.hidden_field :id,value:current_user.id%>
+			    <%= f.button :submit,'Submit',class:'btn-primary' %>
+			  </div>
+			<% end %>
+		</div>
+</div>		
