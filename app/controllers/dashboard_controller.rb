@@ -29,10 +29,10 @@ class DashboardController < ApplicationController
   			@show_questions_flag = false
         @courses = Course.where(learner_style_id:profile.learner_dimension_scale.learner_style.id)
   		else
-  			@questions = Question.all
+  			@questions = Question.where(question_type:0)
   		end	
   	else
-  		@questions = Question.all
+  		@questions = Question.where(question_type:0)
   	end	
   	
   end
@@ -89,8 +89,22 @@ class DashboardController < ApplicationController
   		learner_dimension_scale_name = 'Verbal'				    			
   	end
   	current_user.save_learning_style(learner_dimension_scale_name)
-  	redirect_to dashboard_student_home_path, notice:"You are learning style is #{learner_dimension_scale_name}"
-  end	
+  	redirect_to dashboard_test2_path, notice:"You are visual style is #{learner_dimension_scale_name}"
+  end
+  def test2
+    @questions = Question.where(question_type:1)
+  end
+  
+  def test3
+    @questions = Question.where(question_type:2)
+  end
+
+  def lst_result
+    redirect_to dashboard_test3_path, notice:"You are LST result is Active Reader "
+  end
+  def last_result
+     redirect_to dashboard_student_home_path, notice:"You are LAST result is Active Speaker "
+  end   
   private
   def save_profile_params
   	params.require(:porfile).permit(:first_name,:last_name,:user_id)

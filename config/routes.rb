@@ -28,7 +28,14 @@ Rails.application.routes.draw do
   get 'dashboard/edit_profile'
   post 'dashboard/save_profile'
   post 'dashboard/test'
+  post 'dashboard/lst_result'
+  post 'dashboard/last_result'
   get 'dashboard/index'
+
+  get 'dashboard/test2'
+  
+  get 'dashboard/test3'
+  
 
   resources :questions
   resources :learner_dimension_scales
